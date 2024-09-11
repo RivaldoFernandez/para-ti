@@ -22,6 +22,34 @@
           z-index: 1000;
       }
 
+        /* Estilos para el icono flotante */
+        .floating-icon {
+          position: fixed;
+          bottom: 20px; /* Ajusta la distancia desde el fondo */
+          right: 20px;  /* Ajusta la distancia desde el borde derecho */
+          width: 50px;  /* Ajusta el tamaño del icono */
+          height: 50px; /* Ajusta el tamaño del icono */
+          cursor: pointer;
+          z-index: 1000; /* Asegura que el icono esté sobre otros elementos */
+      }
+
+      /* Estilos para el tooltip */
+      .tooltip {
+          position: fixed;
+          bottom: 80px; /* Ajusta la distancia desde el icono */
+          right: 20px; /* Ajusta la distancia desde el borde derecho */
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+          border-radius: 5px;
+          display: none; /* Oculto por defecto */
+          white-space: nowrap;
+          z-index: 1000; /* Asegura que el tooltip esté sobre otros elementos */
+      }
+
+      .tooltip.show {
+          display: block; /* Muestra el tooltip */
+      }
   </style>
 </head>
 
@@ -327,6 +355,27 @@
         </div>
       </div>
     </div>
+        <!-- Icono flotante con tooltip -->
+    <img src="img/tik.png" alt="Ícono de Tik" class="floating-icon" id="icon">
+    <div class="tooltip" id="tooltip">
+        Autor: Rivaldo Fernández
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@rivaldo.111" data-unique-id="rivaldo.111" data-embed-type="creator" style="max-width: 280px; min-width: 288px;" > <section> <a target="_blank" href="https://www.tiktok.com/@rivaldo.111?refer=creator_embed">Rivaldo Fernandez</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+    </div>
+
+
     <script src="main.js"></script>
+    <script>
+      document.getElementById('icon').addEventListener('click', function() {
+          alert('Autor: Rivaldo Fernández');
+      });
+
+      document.getElementById('icon').addEventListener('mouseover', function() {
+          document.getElementById('tooltip').classList.add('show');
+      });
+
+      document.getElementById('icon').addEventListener('mouseout', function() {
+          document.getElementById('tooltip').classList.remove('show');
+      });
+  </script>
   </body>
 </html>

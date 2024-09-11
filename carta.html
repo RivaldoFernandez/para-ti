@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Feliz Primavera</title>
+    <style>
+        /* Estilos generales para el cuerpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Estilos para el contenedor */
+        .container {
+            margin: 0 auto;
+            max-width: 600px;
+            border: 2px solid #f5a3b1; /* Rosa claro */
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para el título */
+        h1 {
+            color: #d18b9c; /* Rosa suave */
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para el mensaje general */
+        .greetings {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #777;
+        }
+
+        /* Estilos para el nombre y "Querida" */
+        .name-placeholder span {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #f36f6f; /* Rojo coral */
+        }
+
+        /* Estilo para el botón */
+        .button {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #f5a3b1; /* Rosa claro */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e89b9b; /* Rosa medio */
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¡Feliz Primavera!</h1>
+        
+        <p>Con motivo del inicio de la primavera, quiero regalarte estas hermosas flores amarillas.</p>
+        <div class="greetings name-placeholder" id="greetings1"></div>
+        <div class="greetings" id="greetings2"></div>
+        
+        <div class="button">
+            <button>
+                <a href="FLORES.html">Haga Clic</a>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const userName = getParameterByName('name');
+        if (userName) {
+            const greetings1 = document.getElementById('greetings1');
+            const greetings2 = document.getElementById('greetings2');
+
+            // Agregar "Querida" al primer grupo
+            const dearSpan = document.createElement('span');
+            dearSpan.textContent = "Querida ";
+            greetings1.appendChild(dearSpan);
+
+            // Crear spans para el nombre en el primer grupo
+            for (let i = 0; i < userName.length; i++) {
+                const span1 = document.createElement('span');
+                span1.textContent = userName.charAt(i);
+                span1.id = `greeting1-${i + 2}`; // Ajustar ID para incluir "Querida"
+                greetings1.appendChild(span1);
+            }
+
+            // Mensaje en greetings2
+            greetings2.textContent = "¡Disfruta de esta primavera llena de alegría!";
+        }
+    </script>
+
+</body>
+</html>

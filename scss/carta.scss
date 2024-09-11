@@ -1,0 +1,97 @@
+// Variables
+$primary-color: #f8c202;
+$background-color: #f4f9f9;
+$text-color: #333;
+$flower-border-color: #f8c202;
+
+// Mixins
+@mixin box-shadow($color, $x, $y, $blur) {
+    box-shadow: $x $y $blur rgba($color, 0.1);
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+// Styles
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    @include box-shadow($text-color, 0, 4px, 8px);
+    @include border-radius(10px);
+    overflow: hidden;
+}
+
+.header {
+    background-color: $primary-color;
+    padding: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.header h1 {
+    font-size: 36px;
+    margin: 0;
+    font-family: 'Georgia', serif;
+}
+
+.header p {
+    font-size: 18px;
+    margin: 10px 0 0;
+}
+
+.content {
+    padding: 30px;
+    color: $text-color;
+    line-height: 1.6;
+}
+
+.content h2 {
+    font-size: 28px;
+    color: $primary-color;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+.flower-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.flower-section img {
+    width: 200px;
+    @include border-radius(10px);
+    border: 5px solid $flower-border-color;
+}
+
+.button {
+    display: inline-block;
+    background-color: $primary-color;
+    color: #fff;
+    padding: 15px 25px;
+    @include border-radius(5px);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
